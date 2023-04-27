@@ -65,7 +65,7 @@ async function run() {
 
     // orders api
     app.get("/orders", verifyJwt, async (req, res) => {
-      // const decoded = req.decoded;
+      const decoded = req.decoded;
       console.log("inside orders api", decoded);
       if (decoded.email !== req.query.email) {
         return res.status(403).send({ message: "invalid email" });
